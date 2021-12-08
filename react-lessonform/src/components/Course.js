@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
+
 import Lesson from "./Lesson.js"
 
 class Course extends Component {
   constructor(props) {
     super(props);
-    this.state = { lessonCount: 0 };
+    this.state = { lessons:[{id: 1, name:"lesson1"}] };
+  }
+  
+  onAddLesson  = ()=>{
+    const arr = [...this.state.lessons,{name:""}]
+    this.setState({lessons:arr})
   }
 
-  // addLesson(_id, _count) {
-  //   render(<Lesson></Lesson>, document.getElementById(_id));
-  // }
+  renderLessons = ()=>{
+    return this.state.lessons.map((lesson)=>{      
+      return <Lesson id={lesson.id} name={lesson.name}/>
+    })
+  }
+
 
   render() {
     return (
@@ -18,13 +27,13 @@ class Course extends Component {
           <label className="form-label" htmlFor="course-title-input">Course Title</label>
           <input className="form-control" id="course-title-input" placeholder="Course Title" type="text"></input>
           <button className="btn btn-primary" type="button"
-            onClick={() => { }}>Add Lesson</button>
+            onClick={this.onAddLesson}>Add Lesson</button>
         </div>
 
         <div className="flex-md-shrink-1 justify-content-center">
           <div className="accordion accordion">
             <div className="accordion-item" id="lesson-collapse">
-
+              {this.renderLessons()}
             </div>
           </div>
         </div>
