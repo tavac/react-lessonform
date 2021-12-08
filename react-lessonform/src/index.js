@@ -1,24 +1,15 @@
-import React, { Component } from 'react';
-import ReactDOM, { render } from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
-import Course from "./components/Course.js"
-import Lesson from "./components/Lesson.js"
-import Question from "./components/Question.js"
-import Answer from "./components/Answer.js"
 
+import Course from "./components/Course.js"
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 // ========================================
 
 ReactDOM.render(
   <div className="container-sm col-5">
-    <Course>
-      <Lesson>
-        <Question>
-          <Answer></Answer>
-        </Question>
-      </Lesson>
-    </Course>
+    <Course/>
   </div >,
   document.getElementById('root')
 );

@@ -14,8 +14,8 @@ class Lesson extends Component {
         <button className="accordion-button collapsed btn-dark" data-bs-target="#L1-Section" data-bs-toggle="collapse"
           type="button">
           <div className="input-group mb-3">
-            <span className="input-group-text" id="${lessonID}" >Lesson Title:</span>
-            <input className="form-control" type="text" aria-label="Lesson 1 Title" aria-describedby="L1-input"></input>
+            <span className="input-group-text" id={`L${this.props.id}-input`} >Lesson Title:</span>
+            <input className="form-control" type="text" aria-label="Lesson 1 Title" aria-describedby="L1-input" value={this.props.name}></input>
           </div>
         </button>
       </h2>
