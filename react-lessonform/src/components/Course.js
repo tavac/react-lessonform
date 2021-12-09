@@ -5,20 +5,23 @@ import Lesson from "./Lesson.js"
 class Course extends Component {
   constructor(props) {
     super(props);
-    this.state = { lessons:[{id: 1, name:"lesson1"}] };
-  }
-  
-  onAddLesson  = ()=>{
-    const arr = [...this.state.lessons,{name:""}]
-    this.setState({lessons:arr})
+    this.state = { lessons: [{ id: "L1-Section", name: "Lesson1" }] };
   }
 
-  renderLessons = ()=>{
-    return this.state.lessons.map((lesson)=>{      
-      return <Lesson id={lesson.id} name={lesson.name}/>
+  onAddLesson = () => {
+    let lCount = this.state.lessons.length + 1;
+    const arr = [...this.state.lessons, {
+      id: `L${lCount}-Section`,
+      name: `Lesson${lCount}`
+    }];
+    this.setState({ lessons: arr });
+  }
+
+  renderLessons = () => {
+    return this.state.lessons.map((lesson) => {
+      return <Lesson id={lesson.id} name={lesson.name} />
     })
   }
-
 
   render() {
     return (
@@ -32,9 +35,7 @@ class Course extends Component {
 
         <div className="flex-md-shrink-1 justify-content-center">
           <div className="accordion accordion">
-            <div className="accordion-item" id="lesson-collapse">
-              {this.renderLessons()}
-            </div>
+            {this.renderLessons()}
           </div>
         </div>
       </form >
