@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Question extends Component {
   render() {
     return (
-      <button className="accordion-button collapsed" data-bs-target="#L1Q1-answers-collapse"
+      <button className="accordion-button collapsed"
         data-bs-toggle="collapse" type="button">
         <div className="input-group mb-3">
           <span className="input-group-text" id="Q1-input">Question:</span>
