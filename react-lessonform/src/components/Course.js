@@ -5,15 +5,21 @@ import Lesson from "./Lesson.js"
 class Course extends Component {
   constructor(props) {
     super(props);
-    this.state = { lessons: [{ id: `L1`, name: "Lesson1" }] };
+    this.state = { lessons: [{ id: `l1`, name: "Lesson1" }] };
   }
 
   onAddLesson = () => {
     let lCount = this.state.lessons.length + 1;
     const arr = [...this.state.lessons, {
-      id: `L${lCount}`,
+      id: `l${lCount}`,
       name: `Lesson${lCount}`
     }];
+    this.setState({ lessons: arr });
+  }
+
+  onRemoveLesson = () => {
+    this.state.lessons.pop()
+    const arr = [...this.state.lessons];
     this.setState({ lessons: arr });
   }
 
@@ -31,6 +37,8 @@ class Course extends Component {
           <input className="form-control" id="course-title-input" placeholder="Course Title" type="text"></input>
           <button className="btn btn-primary" type="button"
             onClick={this.onAddLesson}>Add Lesson</button>
+          <button className="btn btn-danger" type="button"
+            onClick={this.onRemoveLesson}>Remove Lesson</button>
         </div>
 
         <div className="flex-md-shrink-1 justify-content-center">

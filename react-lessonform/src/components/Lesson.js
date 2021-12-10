@@ -11,7 +11,13 @@ class Lesson extends Component {
 
   onAddQuestion = () => {
     let qCount = this.state.questions.length + 1;
-    const arr = [...this.state.questions, { id: `${this.props.id}-Q${qCount}` }];
+    const arr = [...this.state.questions, { id: `${this.props.id}-q${qCount}` }];
+    this.setState({ questions: arr });
+  }
+
+  onRemoveQuestion = () => {
+    this.state.questions.pop();
+    const arr = [...this.state.questions];
     this.setState({ questions: arr });
   }
 
@@ -23,7 +29,7 @@ class Lesson extends Component {
 
   render() {
     return (
-      <div className="accordion-item" id="lesson-collapse-template">
+      <div className="accordion-item">
 
         <h2 className="accordion-header">
           <button className="accordion-button collapsed btn-dark" data-bs-target={`#${this.props.id}`} data-bs-toggle="collapse"
@@ -39,6 +45,8 @@ class Lesson extends Component {
           <div className="accordion-header">
             <button type="button" className="btn btn-primary"
               onClick={this.onAddQuestion}>Add Question</button>
+            <button type="button" className="btn btn-danger"
+              onClick={this.onRemoveQuestion}>Remove Question</button>
             {this.renderQuestions()}
           </div>
         </div>
