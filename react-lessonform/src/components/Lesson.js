@@ -6,7 +6,7 @@ class Lesson extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { questions: [{ id: `${this.props.id}-Q1` }] };
+    this.state = { questions: [{ id: `${this.props.id}-q1` }] };
   }
 
   onAddQuestion = () => {
@@ -41,17 +41,18 @@ class Lesson extends Component {
           </button>
         </h2>
 
-        <div className="accordion-item accordion-collapse collapse" id={`${this.props.id}`}>
-          <div className="accordion-header">
-            <button type="button" className="btn btn-primary"
-              onClick={this.onAddQuestion}>Add Question</button>
-            <button type="button" className="btn btn-danger"
-              onClick={this.onRemoveQuestion}>Remove Question</button>
-            {this.renderQuestions()}
-          </div>
-        </div>
 
+        <div className="accordion-item accordion-collapse collapse" id={`${this.props.id}`}>
+          <button type="button" className="btn btn-primary"
+            onClick={this.onAddQuestion}>Add Question</button>
+          <button type="button" className="btn btn-danger"
+            onClick={this.onRemoveQuestion}>Remove Question</button>
+
+
+          {this.renderQuestions()}
+        </div>
       </div>
+
     );
   }
 }
