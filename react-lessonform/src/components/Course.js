@@ -5,13 +5,13 @@ import Lesson from "./Lesson.js"
 class Course extends Component {
   constructor(props) {
     super(props);
-    this.state = { lessons: [{ id: "L1-Section", name: "Lesson1" }] };
+    this.state = { lessons: [{ id: `L1`, name: "Lesson1" }] };
   }
 
   onAddLesson = () => {
     let lCount = this.state.lessons.length + 1;
     const arr = [...this.state.lessons, {
-      id: `L${lCount}-Section`,
+      id: `L${lCount}`,
       name: `Lesson${lCount}`
     }];
     this.setState({ lessons: arr });
