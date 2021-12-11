@@ -18,8 +18,8 @@ class Course extends Component {
   }
 
   onRemoveLesson = () => {
-    this.state.lessons.pop()
     const arr = [...this.state.lessons];
+    arr.pop();
     this.setState({ lessons: arr });
   }
 
