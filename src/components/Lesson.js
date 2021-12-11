@@ -16,14 +16,14 @@ class Lesson extends Component {
   }
 
   onRemoveQuestion = () => {
-    this.state.questions.pop();
     const arr = [...this.state.questions];
+    arr.pop();
     this.setState({ questions: arr });
   }
 
   renderQuestions = () => {
-    return this.state.questions.map((question) => {
-      return <Question id={question.id} />
+    return this.state.questions.map(({ id }) => {
+      return <Question id={id} />
     })
   }
 

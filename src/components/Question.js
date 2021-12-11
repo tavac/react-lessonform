@@ -14,14 +14,14 @@ class Question extends Component {
   }
 
   onRemoveAnswer = () => {
-    this.state.answers.pop();
     const arr = [...this.state.answers];
+    arr.pop();
     this.setState({ answers: arr });
   }
 
   renderAnswers = () => {
-    return this.state.answers.map((answer) => {
-      return <Answer id={answer.id} />
+    return this.state.answers.map(({ id }) => {
+      return <Answer id={id} />
     })
   }
 
@@ -40,12 +40,12 @@ class Question extends Component {
           </button >
         </div>
 
-        <div class="accordion-item accordion-collapse collapse" id={`${this.props.id}-a${this.state.id}`}>
+        <div className="accordion-item accordion-collapse collapse" id={`${this.props.id}-a${this.state.id}`}>
           <button type="button" className="btn btn-primary"
             onClick={this.onAddAnswer}>Add Answer</button>
           <button type="button" className="btn btn-danger"
             onClick={this.onRemoveAnswer}>Remove Answer</button>
-          <div class="accordion-header">
+          <div className="accordion-header">
             {this.renderAnswers()}
           </div>
         </div>
